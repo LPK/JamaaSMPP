@@ -23,7 +23,7 @@ namespace JamaaTech.Smpp.Net.Lib.Util
 {
     public static class SMPPEncodingUtil
     {
-        public static System.Text.Encoding UCS2Encoding { get; set; } = System.Text.Encoding.BigEndianUnicode;
+        public static System.Text.Encoding UCS2Encoding { get; set; } = System.Text.Encoding.Unicode;
 
         #region Methods
         public static byte[] GetBytesFromInt(uint value)
