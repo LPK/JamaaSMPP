@@ -24,12 +24,17 @@ namespace DemoClient
 
             msg.DestinationAddress = "255455388333"; //Receipient number
             msg.SourceAddress = "255344338333"; //Originating number
-            msg.Text = "Hello, this is my test message!";
+            //msg.Text = "Hello, this is my test message!";
+            msg.Text = "السلام عليكم";
             msg.RegisterDeliveryNotification = true; //I want delivery notification for this message
 
-            client.SendMessage(msg);
+            //client.Properties.DefaultEncoding = JamaaTech.Smpp.Net.Lib.DataCoding.UCS2;
 
-            Console.ReadLine();
+            do
+                client.SendMessage(msg);
+            while (Console.ReadLine() != "q");
+
+            //Console.ReadLine();
         }
 
         private static ISmppConfiguration GetSmppConfiguration()
@@ -42,14 +47,14 @@ namespace DemoClient
                 SystemID = "smppclient1",
                 Password = "password",
                 Host = "localhost",
-                Port = 2775,
+                Port = 5016,
                 SystemType = "5750",
                 DefaultServiceType = "5750",
                 SourceAddress = "5750",
                 AutoReconnectDelay = 5000,
                 KeepAliveInterval = 5000,
                 ReconnectInteval = 10000,
-                Encoding = JamaaTech.Smpp.Net.Lib.DataCoding.ASCII
+                Encoding = JamaaTech.Smpp.Net.Lib.DataCoding.UCS2
             };
         }
 
